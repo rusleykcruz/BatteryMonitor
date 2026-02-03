@@ -3,3 +3,8 @@ gradle-*.zip
 android-sdk/
 .gradle/
 build/
+cmdline-tools.zip
+gradle-*.zip
+android-sdk/
+.gradle/
+build/

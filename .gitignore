@@ -8,3 +8,9 @@ gradle-*.zip
 android-sdk/
 .gradle/
 build/
+# Evitar arquivos grandes e temporários
+cmdline-tools.zip
+gradle-*.zip
+android-sdk/
+.gradle/
+build/

@@ -1,79 +1,36 @@
 #!/bin/bash
-# Script para criar repositório no GitHub via API, configurar Git e enviar projeto
+# Script para configurar GitHub com Personal Access Token (PAT) de forma segura
 
 # === CONFIGURAÇÕES ===
 GITHUB_USER="rusleykcruz"              # seu usuário GitHub
-REPO_NAME="BatteryMonitor"             # nome do repositório desejado
-TOKEN="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"                 # cole aqui seu PAT gerado no GitHub
+REPO_NAME="BatteryMonitor"             # nome do repositório
+EMAIL="rusleypb@gmail.com"           # seu e-mail do GitHub
 
-# === CRIAR REPOSITÓRIO NO GITHUB ===
-echo "🚀 Criando repositório $REPO_NAME no GitHub..."
-curl -H "Authorization: token $TOKEN" \
-     -H "Accept: application/vnd.github.v3+json" \
-     https://api.github.com/user/repos \
-     -d "{\"name\":\"$REPO_NAME\",\"private\":false}"
-
-# === CONFIGURAR GIT LOCAL ===
-echo "⚙️ Configurando Git local..."
+echo "⚙️ Configurando Git./.."
 git init
 git branch -M main
-git remote add origin https://$GITHUB_USER:$TOKEN@github.com/$GITHUB_USER/$REPO_NAME.git
 git config --global user.name "$GITHUB_USER"
-git config --global user.email "seuemail@example.com"
+git config --global user.email "$EMAIL"
 
-# === CRIAR WORKFLOW GITHUB ACTIONS ===
-mkdir -p .github/workflows
-cat > .github/workflows/android-build.yml << 'EOF'
-name: Android Build
+# === CONFIGURAR HELPER DE CREDENCIAIS ===
+echo "🔐 Configurando Git para armazenar credenciais..."
+git config --global credential.helper store
 
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+# === CONFIGURAR REMOTE ===
+echo "🔗 Configurando remote..."
+git remote remove origin 2>/dev/null
+git remote add origin https://github.com/$GITHUB_USER/$REPO_NAME.git
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+echo "✅ Remote configurado para https://github.com/$GITHUB_USER/$REPO_NAME.git"
 
-    steps:
-      - name: Checkout código
-        uses: actions/checkout@v3
-
-      - name: Configurar JDK 21
-        uses: actions/setup-java@v3
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-
-      - name: Instalar Android SDK
-        run: |
-          sudo mkdir -p /usr/local/android-sdk
-          sudo chown $USER:$USER /usr/local/android-sdk
-          wget https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -O cmdtools.zip
-          unzip cmdtools.zip -d /usr/local/android-sdk/cmdline-tools
-          mv /usr/local/android-sdk/cmdline-tools/cmdline-tools /usr/local/android-sdk/cmdline-tools/latest
-          export ANDROID_HOME=/usr/local/android-sdk
-          export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
-          yes | sdkmanager --licenses
-          sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0"
-
-      - name: Build APK
-        run: ./gradlew assembleDebug
-
-      - name: Upload APK como artefato
-        uses: actions/upload-artifact@v3
-        with:
-          name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
-EOF
-
-# === COMMIT E PUSH ===
+# === PRIMEIRO COMMIT ===
 echo "📂 Adicionando arquivos..."
 git add .
 echo "📝 Criando commit inicial..."
 git commit -m "Configuração inicial do projeto Android + CI"
-echo "🚀 Enviando para GitHub..."
+
+# === PUSH (vai pedir token uma vez) ===
+echo "🚀 Fazendo push para GitHub..."
 git push -u origin main
 
-echo "🎉 Projeto pronto! O workflow será executado no GitHub Actions e o APK ficará disponível em Artifacts."
+echo "🎉 Push concluído! O token será armazenado localmente e não será mais necessário digitar."

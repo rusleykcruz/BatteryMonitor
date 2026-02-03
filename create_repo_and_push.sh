@@ -4,9 +4,9 @@
 # === CONFIGURAÇÕES ===
 GITHUB_USER="rusleykcruz"              # seu usuário GitHub
 REPO_NAME="BatteryMonitor"             # nome do repositório
-EMAIL="rusleypb@gmail.com"           # seu e-mail do GitHub
+EMAIL="rusleylb@gmail.com"           # seu e-mail do GitHub
 
-echo "⚙️ Configurando Git./.."
+echo "⚙️ Configurando Git..."
 git init
 git branch -M main
 git config --global user.name "$GITHUB_USER"
@@ -31,6 +31,8 @@ git commit -m "Configuração inicial do projeto Android + CI"
 
 # === PUSH (vai pedir token uma vez) ===
 echo "🚀 Fazendo push para GitHub..."
+echo "👉 Quando pedir 'Username', digite: $GITHUB_USER"
+echo "👉 Quando pedir 'Password', cole seu Personal Access Token (PAT)"
 git push -u origin main
 
-echo "🎉 Push concluído! O token será armazenado localmente e não será mais necessário digitar."
+echo "🎉 Push concluído! O token foi armazenado em ~/.git-credentials e não será mais necessário digitar."

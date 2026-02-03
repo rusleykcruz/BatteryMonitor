@@ -1,0 +1,5 @@
+cmdline-tools.zip
+gradle-*.zip
+android-sdk/
+.gradle/
+build/

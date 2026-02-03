@@ -1,10 +1,10 @@
 #!/bin/bash
-# Script inicial para configurar projeto Git + GitHub Actions
+# Script inicial para configurar projeto Git + GitHub Actions sem arquivos grandes
 
 # === CONFIGURAÇÕES ===
 GITHUB_USER="rusleykcruz"              # seu usuário GitHub
 REPO_NAME="BatteryMonitor"             # nome do repositório
-EMAIL="ruslwypb@gmail.com"           # seu e-mail do GitHub
+EMAIL="ruslrypb@gmail.com"           # seu e-mail do GitHub
 
 echo "⚙️ Configurando Git..."
 git init
@@ -18,6 +18,13 @@ git remote remove origin 2>/dev/null
 git remote add origin https://github.com/$GITHUB_USER/$REPO_NAME.git
 
 echo "✅ Remote configurado para https://github.com/$GITHUB_USER/$REPO_NAME.git"
+
+# === AJUSTAR .gitignore PARA EVITAR ARQUIVOS GRANDES ===
+echo "cmdline-tools.zip" >> .gitignore
+echo "gradle-*.zip" >> .gitignore
+echo "android-sdk/" >> .gitignore
+echo ".gradle/" >> .gitignore
+echo "build/" >> .gitignore
 
 # === CRIAR WORKFLOW GITHUB ACTIONS ===
 mkdir -p .github/workflows
@@ -44,7 +51,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Instalar Android SDK
+      - name: Instalar Android SDK e Gradle
         run: |
           sudo mkdir -p /usr/local/android-sdk
           sudo chown $USER:$USER /usr/local/android-sdk

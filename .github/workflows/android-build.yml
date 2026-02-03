@@ -20,7 +20,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Instalar Android SDK
+      - name: Instalar Android SDK e Gradle
         run: |
           sudo mkdir -p /usr/local/android-sdk
           sudo chown $USER:$USER /usr/local/android-sdk

@@ -30,11 +30,18 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: Detectar diretório raiz do projeto
+        id: detect-root
+        run: |
+          ROOT_DIR=$(find . -maxdepth 2 -name "settings.gradle*" -exec dirname {} \; | head -n 1)
+          echo "root=$ROOT_DIR" >> $GITHUB_OUTPUT
+
       - name: Build APK
         run: ./gradlew assembleDebug
+        working-directory: ${{ steps.detect-root.outputs.root }}
 
       - name: Upload APK como artefato
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: ${{ steps.detect-root.outputs.root }}/app/build/outputs/apk/debug/app-debug.apk

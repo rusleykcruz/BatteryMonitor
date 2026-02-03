@@ -1,0 +1,7 @@
+com.example.batterymonitor.app-pngs-0 /root/BatteryMonitor/app/build/generated/res/pngs/debug
+com.example.batterymonitor.app-resValues-1 /root/BatteryMonitor/app/build/generated/res/resValues/debug
+com.example.batterymonitor.app-packageDebugResources-2 /root/BatteryMonitor/app/build/intermediates/incremental/debug/packageDebugResources/merged.dir
+com.example.batterymonitor.app-packageDebugResources-3 /root/BatteryMonitor/app/build/intermediates/incremental/debug/packageDebugResources/stripped.dir
+com.example.batterymonitor.app-merged_res-4 /root/BatteryMonitor/app/build/intermediates/merged_res/debug
+com.example.batterymonitor.app-debug-5 /root/BatteryMonitor/app/src/debug/res
+com.example.batterymonitor.app-main-6 /root/BatteryMonitor/app/src/main/res

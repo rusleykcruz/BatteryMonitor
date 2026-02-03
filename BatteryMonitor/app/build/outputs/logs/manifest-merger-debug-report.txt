@@ -1,0 +1,52 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:1:1-22:12
+INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:1:1-22:12
+INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:1:1-22:12
+INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:1:1-22:12
+	package
+		ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:2:5-41
+		INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:1:11-69
+application
+ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:4:5-20:19
+INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:4:5-20:19
+	android:extractNativeLibs
+		INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml
+	android:supportsRtl
+		ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:7:9-35
+	android:label
+		ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:6:9-40
+	android:allowBackup
+		ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:5:9-35
+	android:theme
+		ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:8:9-60
+activity#com.example.batterymonitor.MainActivity
+ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:10:9-19:20
+	android:exported
+		ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:12:13-36
+	android:name
+		ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:11:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:14:13-17:29
+action#android.intent.action.MAIN
+ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:15:17-68
+	android:name
+		ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:16:17-76
+	android:name
+		ADDED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml
+INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /root/BatteryMonitor/app/src/main/AndroidManifest.xml

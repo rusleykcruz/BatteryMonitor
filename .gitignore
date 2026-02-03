@@ -1,14 +1,4 @@
-cmdline-tools.zip
-gradle-*.zip
-android-sdk/
-.gradle/
-build/
-cmdline-tools.zip
-gradle-*.zip
-android-sdk/
-.gradle/
-build/
-# Evitar arquivos grandes e temporários
+# Ignorar arquivos grandes e temporários
 cmdline-tools.zip
 gradle-*.zip
 android-sdk/
